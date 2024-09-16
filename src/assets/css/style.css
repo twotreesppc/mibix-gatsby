@@ -61,7 +61,7 @@ Default CSS
   --mainColor: #3b89d6;
   --optionalColor: #4b5280;
   --whiteColor: #ffffff;
-  --blackColor: #080e32;
+  --blackColor: #000000;
   --fontSize: 16px;
   --transition: .5s;
   scroll-behavior: initial;
@@ -9627,3 +9627,72 @@ Sidebar Modal CSS
   padding-right: 10px;
 }
 /*# sourceMappingURL=style.css.map */
+
+.article-share .social li button {
+  width: 32px;
+  height: 32px;
+  line-height: 34px !important;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 17px;
+  margin-left: 5px;
+  border:2px solid red;
+}
+
+.article-share .social li button:hover, 
+.article-share .social li button:focus {
+  color: #ffffff !important;
+  background-color: transparent !important;
+}
+
+.article-share .social li button.facebook {
+  background-color: #3b5998 !important;
+  border-color: #3b5998 !important;
+  color: #ffffff !important;
+}
+
+.article-share .social li button.facebook:hover, 
+.article-share .social li button.facebook:focus {
+  color: #3b5998 !important;
+  border:1px solid #3b5998 !important;
+  background-color: #ffffff !important;
+}
+
+.article-share .social li button.twitter {
+  background-color: #1da1f2 !important;
+  border-color: #1da1f2 !important;
+  color: #ffffff !important;
+}
+
+.article-share .social li button.twitter:hover, 
+.article-share .social li button.twitter:focus {
+  color: #1da1f2 !important;
+  border:1px solid #1da1f2 !important;
+  background-color: #ffffff !important;
+}
+
+.article-share .social li button.linkedin {
+  background-color: #007bb5 !important;
+  border-color: #007bb5 !important;
+  color: #ffffff !important;
+}
+
+.article-share .social li button.linkedin:hover, 
+.article-share .social li button.linkedin:focus {
+  color: #007bb5 !important;
+  border:1px solid #007bb5 !important;
+  background-color: #ffffff !important;
+}
+
+.article-share .social li button.instagram {
+  background-color: #c13584 !important;
+  border-color: #c13584 !important;
+  color: #ffffff !important;
+}
+
+.article-share .social li button.instagram:hover, 
+.article-share .social li button.instagram:focus {
+  color: #c13584 !important;
+  border:1px solid #c13584 !important;
+  background-color: #ffffff !important;
+}

@@ -5729,7 +5729,7 @@ Blog Details Area CSS
                     bottom: 0;
                 };
                 li {
-                    display: inline-block;
+                    display: inline-block;                  
 
                     span {
                         display: inline-block;
@@ -5738,6 +5738,80 @@ Blog Details Area CSS
                         position: relative;
                         top: -1px;
                     }
+                    button {
+						display: block;
+						width: 32px;
+						height: 32px;
+						line-height: 34px;
+						border-radius: 50%;
+						background-color: var(--mainColor);
+						color: var(--whiteColor);
+						border: 1px solid var(--mainColor);
+						text-align: center;
+						font-size: 17px;
+						margin-left: 5px;
+                        border:3px solid red;
+						&:hover {
+							color: var(--mainColor);
+							background-color: transparent;
+						}
+						&:focus {
+							color: var(--mainColor);
+							background-color: transparent;
+						}
+					}
+					button.facebook {
+						background-color: #3b5998;
+						border-color: #3b5998;
+						color: var(--whiteColor);
+						&:hover {
+							color: #3b5998;
+							background-color: transparent;
+						}
+						&:focus {
+							color: #3b5998;
+							background-color: transparent;
+						}
+					}
+					button.twitter {
+						background-color: #1da1f2;
+						border-color: #1da1f2;
+						color: var(--whiteColor);
+						&:hover {
+							color: #1da1f2;
+							background-color: transparent;
+						}
+						&:focus {
+							color: #1da1f2;
+							background-color: transparent;
+						}
+					}
+					button.linkedin {
+						background-color: #007bb5;
+						border-color: #007bb5;
+						color: var(--whiteColor);
+						&:hover {
+							color: #007bb5;
+							background-color: transparent;
+						}
+						&:focus {
+							color: #007bb5;
+							background-color: transparent;
+						}
+					}
+					button.instagram {
+						background-color: #c13584;
+						border-color: #c13584;
+						color: var(--whiteColor);
+						&:hover {
+							color: #c13584;
+							background-color: transparent;
+						}
+						&:focus {
+							color: #c13584;
+							background-color: transparent;
+						}
+					}
                     a {
                         display: block;
                         width: 32px;

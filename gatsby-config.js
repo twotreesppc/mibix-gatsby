@@ -1,3 +1,19 @@
+require('dotenv').config({
+    path: `.env.${process.env.NODE_ENV}`,
+  });
+  
+  const {
+    CONTENTFUL_SPACE_ID,
+    CONTENTFUL_ACCESS_TOKEN,
+    CONTENTFUL_ENV,
+  } = process.env;
+  
+  if (!CONTENTFUL_SPACE_ID || !CONTENTFUL_ACCESS_TOKEN) {
+    throw new Error(
+      'Contentful spaceId and the access token need to be provided.'
+    );
+  }
+  
 module.exports = {
     siteMetadata: {
         title: `Sacramento Digital Marketing Experts, Two Trees PPC`,
@@ -10,6 +26,7 @@ module.exports = {
             options: {
               spaceId: process.env.CONTENTFUL_SPACE_ID,
               accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+              environment: CONTENTFUL_ENV,
             },
           },
         `gatsby-plugin-react-helmet`,

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from "gatsby"
-
+import { useStaticQuery, graphql, Link } from "gatsby"
+import BlogIndex from '../Blog/BlogIndex';
 import BlogImg1 from '../../assets/images/blog/blog-img1.jpg'
 import BlogImg2 from '../../assets/images/blog/blog-img2.jpg'
 import BlogImg3 from '../../assets/images/blog/blog-img3.jpg'
@@ -10,6 +10,35 @@ import User2 from '../../assets/images/user2.jpg'
 import User3 from '../../assets/images/user3.jpg'
 
 const LatestBlogPost = () => {
+    const { LatestPosts } = useStaticQuery(
+        graphql`
+          query {
+            LatestPosts: allContentfulBlogPost(
+                limit: 3
+                sort: {fields: publishdate, order: DESC}
+              ) {
+                edges {
+                  node {
+                    id
+                    slug
+                    title
+                    publishdate
+                    featuredimage {
+                      gatsbyImageData(quality: 100, layout: CONSTRAINED, width: 500, height: 400)
+                    }
+                    author {
+                      name
+                      picture {
+                        gatsbyImageData(width: 58, height: 58, layout: FIXED, quality: 100)
+                      }
+                    }
+                  }
+                }
+              }            
+          }
+        `
+      )
+      const { edges: blogsData } = LatestPosts
     return (
         <div className="blog-area bg-f9f9f9 pt-100 pb-70">
             <div className="container">
@@ -20,83 +49,11 @@ const LatestBlogPost = () => {
                 </div>
 
                 <div className="row">
-                    <div className="col-lg-4 col-md-6">
-                        <div className="single-blog-post">
-                            <div className="image">
-                                <Link to="/single-blog-1" className="d-block">
-                                    <img src={BlogImg1} alt="Blog" />
-                                </Link>
-                            </div>
-                            <div className="content">
-                                <h3>
-                                    <Link to="/single-blog-1">
-                                        Digital Marketing Agency Blogs You Should Read
-                                    </Link>
-                                </h3>
-                                <div className="d-flex align-items-center">
-                                    <img src={User1} alt="Blog" />
-                                    <div className="info">
-                                        <h5>David Smith</h5>
-                                        <span>Jun 21, 2020</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="col-lg-4 col-md-6">
-                        <div className="single-blog-post">
-                            <div className="image">
-                                <Link to="/single-blog-1" className="d-block">
-                                    <img src={BlogImg2} alt="Blog" />
-                                </Link>
-                            </div>
-
-                            <div className="content">
-                                <h3>
-                                    <Link to="/single-blog-1">
-                                        Digital Marketing Strategies for Lead Generation
-                                    </Link>
-                                </h3>
-                                <div className="d-flex align-items-center">
-                                    <img src={User2} alt="Blog" />
-                                    <div className="info">
-                                        <h5>Sarah Taylor</h5>
-                                        <span>Jun 20, 2020</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
-                        <div className="single-blog-post">
-                            <div className="image">
-                                <Link to="/single-blog-1" className="d-block">
-                                    <img src={BlogImg3} alt="Blog" />
-                                </Link>
-                            </div>
-
-                            <div className="content">
-                                <h3>
-                                    <Link to="/single-blog-1">
-                                        Agencies Can Successfully Recover From COVID?
-                                    </Link>
-                                </h3>
-                                <div className="d-flex align-items-center">
-                                    <img src={User3} alt="Blog" />
-                                    <div className="info">
-                                        <h5>Steven Gibson</h5>
-                                        <span>Jun 19, 2020</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <BlogIndex data={blogsData} currentPage={1} numPages={1}/>  
                 </div>
             </div>
-        </div>
-    )
-}
+         </div>
+    );
+    };
 
 export default LatestBlogPost;

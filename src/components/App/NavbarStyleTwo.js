@@ -80,7 +80,7 @@ const NavbarStyleTwo = () => {
                                     </li>
 
                                     <li className="nav-item">
-                                        <Link to="/blog-2" activeClassName="active" onClick={toggleNavbar} className="nav-link">
+                                        <Link to="/blog" activeClassName="active" onClick={toggleNavbar} className="nav-link">
                                             Blog                                        
                                         </Link>                                                                          
                                     </li>
